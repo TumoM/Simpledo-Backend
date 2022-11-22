@@ -3,6 +3,7 @@ import cors from "cors"
 
 import indexRoutes from './routes/index.routes';
 import userRoutes from './routes/user.routes';
+import todoRoutes from './routes/todo.routes';
 
 class App {
     public server;
@@ -28,6 +29,7 @@ class App {
     routes() {
         this.server.use('/', indexRoutes);
         this.server.use('/user', userRoutes);
+        this.server.use('/todo', todoRoutes);
     }
 }
 

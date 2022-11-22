@@ -1,5 +1,5 @@
 import { DataTypes, InferAttributes, InferCreationAttributes, Model } from "sequelize";
-let db = require('./db.service');
+const db = require('./db.service');
 const bcrypt = require("bcrypt")
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
@@ -32,6 +32,7 @@ User.init({
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
 }, { sequelize: db });
+
 
 async function getAll() {
 

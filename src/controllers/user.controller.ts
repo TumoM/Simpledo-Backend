@@ -21,7 +21,7 @@ export default {
         } catch (error) {
             console.log('error in controller:', error)
             return res.status(500).json({
-                message: "Error fetching user",
+                message: "Error fetching users",
                 error: error,
             });
         }
@@ -36,13 +36,10 @@ export default {
 
         try {
             const data = await service.getById(id);
-            console.log('data in controller by Id:', JSON.stringify(data, null, 2))
             if (data?.data) {
-                console.log('We got data');
                 return res.status(200).json(data);
             }
             else {
-                console.log('No Data');
                 return res.status(404).json({ message: 'No user found' });
 
             }
@@ -69,20 +66,17 @@ export default {
             const salt = await bcrypt.genSalt(Number(process.env.USER_SALT));
             const hashedPassword = await bcrypt.hash(req.body.password, salt);
             const data = await service.createUser(name, email, hashedPassword);
-            console.log('data in controller by Id:', JSON.stringify(data, null, 2))
             if (data?.data) {
-                console.log('We got data');
                 return res.status(200).json(data);
             }
             else {
-                console.log('No Data, returning message', data.message);
                 return res.status(404).json({ message: data.message });
 
             }
         } catch (error) {
             console.log('error in controller:', error)
             return res.status(500).json({
-                message: "Error fetching user",
+                message: "Error registering user",
                 error: error,
             });
         }
@@ -99,29 +93,13 @@ export default {
         }
         try {
             const data = await service.loginUser(email, password);
-            console.log('data in controller by Id:', JSON.stringify(data, null, 2))
             return res.status(data.status).json({ message: data.message });
         } catch (error) {
             console.log('error in controller:', error)
             return res.status(500).json({
-                message: "Error fetching user",
+                message: "Error login in user",
                 error: error,
             });
         }
     },
-
-    // /**
-    //  * user.controller.update()
-    //  */
-    // update: function (req: Request, res: Response) {
-    //     const id = req.params.id;
-    //     
-    // },
-
-    // /**
-    //  * user.controller.remove()
-    //  */
-    // remove: function (req: Request, res: Response) {
-    //     const id = req.params.id;
-
 };
