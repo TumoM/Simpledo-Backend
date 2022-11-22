@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "2938b8f3-e527-4081-a3ed-ff2c4aab53e1",
+    "colId": "history",
+    "containerId": "",
+    "name": "Get User By Id",
+    "url": "http://localhost:4000/user/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-22T20:37:01.888Z",
+    "modified": "2022-11-22T20:41:54.261Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f7b60881-6269-4ab1-9988-e3e654655429",
+    "colId": "history",
+    "containerId": "",
+    "name": "Post User Registration",
+    "url": "http://localhost:4000/user/register",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-11-22T20:42:47.389Z",
+    "modified": "2022-11-22T20:51:40.878Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Test Thunder 3\",\n    \"email\": \"thunder.test3@test.com\",\n    \"password\": \"password3\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
