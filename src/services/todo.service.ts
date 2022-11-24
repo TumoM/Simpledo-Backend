@@ -36,8 +36,6 @@ Todo.init({
 async function getAll() {
 
     const data = await Todo.findAll();
-    console.log('We got all todos?');
-    console.log("All todos:", JSON.stringify(data, null, 2));
 
     return {
         data
@@ -51,10 +49,6 @@ async function getById(id: number) {
             id: [id]
         }
     });
-    console.log('We got one todos?');
-    console.log("One user:", JSON.stringify(data, null, 2));
-
-
     return {
         data: data[0] || undefined
     }
@@ -67,9 +61,6 @@ async function getAllByUserId(userId: number) {
             userId: [userId]
         }
     });
-    console.log('We got one todos?');
-    console.log("One user:", JSON.stringify(data, null, 2));
-
 
     return {
         data: data || undefined
@@ -78,8 +69,6 @@ async function getAllByUserId(userId: number) {
 async function createTodo(userId: number, title: string) {
 
     const res = await Todo.create({ userId, title, })
-    console.log('Created new todos?');
-    console.log('Res from todo create', JSON.stringify(res, null, 2));
     return { data: res }
 
 }
@@ -91,8 +80,6 @@ async function updateStatus(id: number, userId: number, status: string) {
             userId // Just adds some extra security so that only the 'owner' can update the status
         }
     });
-    console.log('Updated todo?', id);
-    console.log('Res from todo update', JSON.stringify(res, null, 2));
     return { data: res }
 
 }
@@ -104,8 +91,6 @@ async function deleteById(id: number) {
             id
         }
     });
-    console.log('Deleted todo?');
-    console.log('Res from todo delete', JSON.stringify(res, null, 2));
     return { data: res }
 
 }

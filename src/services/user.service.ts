@@ -90,20 +90,14 @@ async function loginUser(email: string, password: string) {
         where: {
             email: [email]
         }
-    });
-    console.log('We got one users on registration?');
-    console.log("One user registration:", JSON.stringify(data, null, 2));
-    if (data.length > 0) {
-        console.log('Found user')
+    }); if (data.length > 0) {
         const user = data[0];
         const hashedPassword = user.password
         //get the hashedPassword from result
         if (await bcrypt.compare(password, hashedPassword)) {
-            console.log("---------> Login Successful")
-            return { status: 200, message: 'Login Successful' }
+            return { status: 200, message: 'Login Successful', data: data[0] }
         }
         else {
-            console.log("---------> Password Incorrect")
             return { status: 400, message: 'Password Incorrect' }
         }
     }

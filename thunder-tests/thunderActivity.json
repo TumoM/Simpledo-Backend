@@ -116,12 +116,12 @@
     "method": "PATCH",
     "sortNum": 0,
     "created": "2022-11-22T22:59:05.205Z",
-    "modified": "2022-11-22T23:05:54.017Z",
+    "modified": "2022-11-24T01:05:12.307Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\r\n    \"userId\": 1\r\n}",
+      "raw": "{\n    \"userId\": 1\n}",
       "form": []
     },
     "tests": []

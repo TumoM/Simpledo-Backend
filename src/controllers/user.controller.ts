@@ -93,7 +93,7 @@ export default {
         }
         try {
             const data = await service.loginUser(email, password);
-            return res.status(data.status).json({ message: data.message });
+            return res.status(data.status).json({ message: data.message, data: data.data });
         } catch (error) {
             console.log('error in controller:', error)
             return res.status(500).json({
